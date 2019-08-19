@@ -27,10 +27,20 @@ void Ball::paint (Graphics& g)
 {
     Rectangle<float> area { posX, posY, size, size };
     
-    g.fillAll (Colours::black);
+    g.fillAll (isEntered ? Colours::red : Colours::black);
     
-    g.setColour (Colours::lightgoldenrodyellow);
+    g.setColour (isEntered ? Colours::grey : Colours::lightgoldenrodyellow);
     g.drawEllipse (area, 2.0);
+}
+
+void Ball::mouseEnter (const MouseEvent& event)
+{
+    isEntered = true;
+}
+
+void Ball::mouseExit (const MouseEvent& event)
+{
+    isEntered = false;
 }
 
 void Ball::resized()

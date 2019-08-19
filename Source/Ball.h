@@ -15,7 +15,7 @@
 //==============================================================================
 /*
 */
-class Ball    : public Component
+class Ball : public Component
 {
 public:
     Ball();
@@ -23,12 +23,16 @@ public:
 
     void paint (Graphics&) override;
     void resized() override;
+    void mouseEnter (const MouseEvent &event) override;
+    void mouseExit (const MouseEvent &event) override;
     
     float posX { 10 };
     float posY { 10 };
     float speedX { 1 };
     float speedY { 3 };
     float size { 20 };
+    
+    bool isEntered { false };
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ball)
